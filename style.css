@@ -1,0 +1,92 @@
+/* Main Css Reset */
+:root{
+    --white-color         : rgb(255, 255, 255);
+    --balck-color         : rgb(0, 0, 0);
+    --body-BG-color       : rgb(225, 232, 255);
+    --wrapper-shadow-color: rgba(255, 255, 255, 0.439);
+    --aside-area-BG-color : rgb(82, 116, 255);
+    --aside-area-width    : 330px;
+    --error-color         : rgb(231, 76, 60);
+    --success-color       : rgb(46, 204, 113);
+    --primary-light-gray  : rgb(184, 180, 180);
+    --primary-color       :rgb(82, 116, 255);
+    --light-blue-color    : rgb(141 162 246);
+    --input-border-color  : rgb(152, 169, 192);
+    --paragraph-color     : rgb(231, 231, 231);
+  }
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  body{
+    height: 100vh;
+    background-color: var(--body-BG-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* End Css Reset */
+  
+  /* Wrapper Area */
+  .wrapper__area{
+    height: 400px;
+    background-color: var(--white-color);
+    box-shadow: 0 0 50px var(--wrapper-shadow-color);
+    border: 5px solid var(--wrapper-shadow-color);
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  /* Aside Area */
+  .aside__area{
+    position: relative;
+    width: 1000px;
+    background-color: var(--aside-area-BG-color);
+    border-radius: 5px;
+    opacity: 1;
+  }
+  /* Sides */
+
+  .aside__area > div h4{
+    color: var(--white-color);
+    letter-spacing: 5px;
+    margin-bottom:0px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    left: 24px;
+  }
+  
+.text1{
+    text-align: left;
+    background-color: aliceblue;
+    max-height: fit-content;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.unformatted{
+    width: auto;
+    max-width: fit-content;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.formatted{
+    width: auto;
+    max-width: 470px;
+    max-height: fit-content;
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    m
+}
+
+.input{
+    width: 100%;
+}

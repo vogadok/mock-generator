@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>        
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 600px; display:grid; justify-content: center; align-content: center; margin-top: 20px">           
+        
+        <div class="mb-3">
+            <input type="text" placeholder="Name" name="field1" id="field1">
+
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="Description" name="field2" id="field2">
+
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="ShippingAddress" name="field3" id="field3">
+
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" onclick="generate()">generate</button>
+       
+        <hr>
+
+        <div class="return">
+            <h4 class="in">Unformatted JSON</h3>
+            <div id="myJSONString"></div>
+            <h4>Formatted JSON</h3>
+            <pre id="regexString"></pre>
+        </div>
+    </div>
+    
+       
+    <script type= "text/javascript" src="/script.js"></script>
+</body> 
+
+</html>
