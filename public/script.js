@@ -14,15 +14,11 @@ var fieldNames = {};
 var fieldValues = {};
 
 function GetData(){
-  fetch('https://resilient-hawk-cinlpe-dev-ed.my.salesforce.com/services/data/v56.0/sobjects/Account/describe/', { 
-    method: "GET", 
-    mode: 'cors', 
-    headers: { 'Authorization': 'Bearer 00D8c000008xsBz\\!AQUAQL89AGBxAGl8sr1FnpSbvbQ_QxBga6HCNetXC0Pz8s0qhXDKj8NvKCD1.waleUTAN_kFSCLoELs6J7yrB8sFqw2W1gnw', 
-               'Access-Control-Allow-Origin': 'https://resilient-hawk-cinlpe-dev-ed.my.salesforce.com', 
-               'Access-Control-Allow-Methods': 'POST, GET', 
-               'Access-Control-Allow-Headers': '*',
-               'Access-Control-Max-Age': '86400'
-  }}).then(response => response.json())
+  fetch('https://resilient-hawk-cinlpe-dev-ed.my.salesforce.com/services/data/v56.0/sobjects/Account/describe/', {
+    headers: {
+        'Authorization': 'Bearer 00D8c000008xsBz\\!AQUAQIf106m1nLoRlEyDAPmbIaMeOrzpT8NGkWkiKk0hL8BfVBWRkXUg4QQdjrLuiBPero3XNa0mpCznO_r9sXB7cIWr0yrt'
+    }
+});
 }
 
 function generate(){
