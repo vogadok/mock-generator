@@ -13,17 +13,21 @@ var obj = {};
 var fieldNames = {};
 var fieldValues = {};
 
-function GetData(){
-  fetch('https://resilient-hawk-cinlpe-dev-ed.my.salesforce.com/services/data/v56.0/sobjects/Account/describe/', { 
-    method: "GET", 
-    mode: 'no-cors', 
-    headers: { 'Authorization': 'Bearer 00D8c000008xsBz!AQUAQIf106m1nLoRlEyDAPmbIaMeOrzpT8NGkWkiKk0hL8BfVBWRkXUg4QQdjrLuiBPero3XNa0mpCznO_r9sXB7cIWr0yrt', 
-               'Access-Control-Allow-Origin': 'https://resilient-hawk-cinlpe-dev-ed.my.salesforce.com', 
-               'Access-Control-Allow-Methods': 'POST, GET', 
-               'Access-Control-Allow-Headers': '*',
-               'Access-Control-Max-Age': '86400'
-  }})
-}
+
+
+const optionsDisplay = document.getElementById('objs')
+fetch('http://localhost:3000/data')
+    .then(response => {return response.json()})
+    .then(data => {
+      data.forEach(item => {
+        const obj = item.Name
+        console.log(obj)
+        optionsDisplay.add(new Option(obj));
+      });
+    })
+    .catch(err => console.log(err)) 
+
+
 
 function generate(){
 
