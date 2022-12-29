@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/style2.css">
 </head>
 <body>
     <div class="container">
@@ -16,9 +16,14 @@
                 <select name="Objects" id="objs" class="input"></select>
             </div>
 
-            <button class="input" id='getData' onclick="GetData()">Get Data</button>
+            <button class="input" id='getData' onclick="getData()">Get Data</button>
 
-            <div if-true="">
+            <form>
+                <button id="get">GET</button>
+                <input type="text" id="input"></input>
+            </form>
+            
+            <div>
 
                 <div class="mb-3">    
                     <input class="input" type="text" placeholder="Name" name="field1" id="field1">

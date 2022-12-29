@@ -6,27 +6,20 @@ const myJSON = {
     Id : ""
   };
 
-var allInfo = []
+const select = document.getElementById('objs')  
+const getBtn = document.getElementById('get')  
 
-
-var obj = {};
-var fieldNames = {};
-var fieldValues = {};
-
-
-
-const optionsDisplay = document.getElementById('objs')
-fetch('http://localhost:3000/data')
-    .then(response => {return response.json()})
-    .then(data => {
-      data.forEach(item => {
-        const obj = item.Name
-        console.log(obj)
-        optionsDisplay.add(new Option(obj));
-      });
+getBtn.addEventListener('click', getData)
+async function getData(e){
+    const res = await fetch('http://localhost:3000/data', {
+        method: 'GET'
     })
-    .catch(err => console.log(err)) 
-
+    const data = await res.json()
+    console.log('valor: ', data)
+    data.forEach(element => {
+      select.options[select.options.length] = new Option(element, 'Value1');
+    });
+}
 
 
 function generate(){
