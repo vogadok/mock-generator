@@ -9,23 +9,28 @@ const myJSON = {
 const select = document.getElementById('objs')  
 const getBtn = document.getElementById('get')  
 
-getBtn.addEventListener('click', getData)
-async function getData(e){
+// getBtn.addEventListener('click', getData)
+
+getData()
+async function getData(){
     const res = await fetch('http://localhost:3000/data', {
         method: 'GET'
     })
     const data = await res.json()
     console.log('valor: ', data)
     data.forEach(element => {
-      select.options[select.options.length] = new Option(element, 'Value1');
+      select.options[select.options.length] = new Option(element, 'Campo');
     });
 }
 
 
 function generate(){
 
-    const dynamic1 = document.getElementById('field1').value;
+    const input = document.getElementById('field1');
+    const dynamic1 = document.getElementById('objs').value;
     const dynamic2 = document.getElementById('field2').value;
+
+    input.value = dynamic1;
     const user = {
                     Name : "GeeksForGeeks",
                     [dynamic1] : "57",

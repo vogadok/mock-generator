@@ -17,12 +17,14 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/data', (req, res) => {
-  selectFieldsFrom("name", "Account", req, res)
+  //getDescribeSobjects(req, res);
+  //selectFieldsFromObject("name", "Opportunity", req, res)
+  getDescribeFields("Opportunity")
 })
 
-function selectFieldsFrom(fields, obj, req, res){
+function selectFieldsFromObject(fields, obj, req, res){
 
-  conn.query("SELECT " +fields+ " FROM " + obj, function(err, result) {
+  conn.query("SELECT " +fields+ " FROM " + obj + " LIMIT 1", function(err, result) {
     if (err) { return console.error(err); }
     console.log("total : " + result.totalSize);
     console.log("fetched : " + result.records.length);
@@ -38,19 +40,19 @@ function selectFieldsFrom(fields, obj, req, res){
   }); 
 }
 
-function getDescribeSobjects(){
-  conn.describeGlobal(function(err, res) {
+function getDescribeSobjects(req, res){
+  conn.describeGlobal(function(err, data) {
     if (err) { return console.error(err); }
-    console.log('Num of SObjects : ' + JSON.stringify(res.sobjects));
+    console.log('Num of SObjects : ' + JSON.stringify(data.sobjects));
 
-    const dados = res.sobjects;
+    const dados = data.sobjects;
     console.log(Array.isArray(dados))
-    
-    dados.map(element => {
+
+    return res.status(200).json(dados.map(element => {
       console.log("label: " + element.label)
       console.log("api-name: " + element.name)
-    })
-
+      return element.label
+    }));
   });
 }
 
