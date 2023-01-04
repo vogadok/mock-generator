@@ -7,20 +7,38 @@ const myJSON = {
   };
 
 const select = document.getElementById('objs')  
+const select2 = document.getElementById('objs2')  
+
 const getBtn = document.getElementById('get')  
 
 // getBtn.addEventListener('click', getData)
 
-getData()
-async function getData(){
+createOptions()
+createOptions2()
+async function createOptions(){
     const res = await fetch('http://localhost:3000/data', {
         method: 'GET'
     })
     const data = await res.json()
     console.log('valor: ', data)
+
     data.forEach(element => {
       select.options[select.options.length] = new Option(element, 'Campo');
     });
+}
+
+async function createOptions2(){
+  const res = await fetch('http://localhost:3000/data/data1', {
+      method: 'GET'
+  })
+  const data = await res.json()
+  let uniqueChars = [...new Set(data)];
+
+  console.log('valor: ', data)
+
+  uniqueChars.forEach(element => {
+    select2.options[select2.options.length] = new Option(element, 'Campo');
+  });
 }
 
 

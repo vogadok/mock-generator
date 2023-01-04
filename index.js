@@ -17,9 +17,14 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/data', (req, res) => {
+  getDescribeSobjects(req, res);
+  //selectFieldsFromObject("name", "Account", req, res)
+})
+
+app.get('/data/data1', (req, res) => {
   //getDescribeSobjects(req, res);
-  //selectFieldsFromObject("name", "Opportunity", req, res)
-  getDescribeFields("Opportunity")
+  //selectFieldsFromObject("name", "Account", req, res)
+  getDescribeFields(req, res, "Opportunity")
 })
 
 function selectFieldsFromObject(fields, obj, req, res){
@@ -56,11 +61,18 @@ function getDescribeSobjects(req, res){
   });
 }
 
-function getDescribeFields(objectName){
+function getDescribeFields(req, res, objectName){
   conn.describe(objectName, function(err, meta) {
     if (err) { return console.error(err); }
     console.log('Label : ' + meta.label);
     console.log('Num of Fields : ' + JSON.stringify(meta));
+
+    const dados = meta.childRelationships;
+    console.log('campos: ' + dados)
+
+    return res.status(200).json(dados.map(element => {
+      return element.field
+    }));
     // ...
   });
 }
